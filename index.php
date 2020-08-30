@@ -24,7 +24,7 @@ if($No_of_rows==0)
     <h2>Records</h2>
     <table cellpadding="7px">
         <thead>
-        <th>Id</th>
+        <th>Ticket Id</th>
         <th>Name</th>
         <th>Phone No</th>
         <th>Movie Name</th>
