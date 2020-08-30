@@ -1,0 +1,47 @@
+CREATE EVENT IF NOT EXISTS event_20
+ON SCHEDULE EVERY 5 SECOND
+STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
+DO 
+INSERT INTO expired_history (
+ticket_id,
+user_name
+)
+SELECT
+ ticket_id,
+ user_name
+FROM
+user
+WHERE
+CURRENT_TIME()-movie_time >=8;
+Go
+DELETE FROM user WHERE CURRENT_TIME()-movie_time >=8
+
+
+
+
+<?php
+echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
+?>
+
+
+<?php
+$date=date_create("2013-03-15");
+date_add($date,date_interval_create_from_date_string("40 days"));
+echo date_format($date,"Y-m-d");
+?>
+<?php
+mysqli_close($conn);
+?>
+
+
+
+
+<input type="date" name="date" max="<?php
+$date=date_create(date("Y-m-d"));
+date_add($date,date_interval_create_from_date_string("7 days"));
+echo date_format($date,"Y-m-d");
+?>"  min="<?php echo date("Y-m-d")?>"><br> 
+
