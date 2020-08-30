@@ -2,20 +2,7 @@ CREATE EVENT IF NOT EXISTS event_20
 ON SCHEDULE EVERY 5 SECOND
 STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
 DO 
-INSERT INTO expired_history (
-ticket_id,
-user_name
-)
-SELECT
- ticket_id,
- user_name
-FROM
-user
-WHERE
-CURRENT_TIME()-movie_time >=8;
-Go
-DELETE FROM user WHERE CURRENT_TIME()-movie_time >=8
-
+DELETE FROM user WHERE (CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>=movie_date) OR CURRENT_DATE()>movie_date;
 
 
 

@@ -31,6 +31,10 @@
 	$sql="select * from user join movie on user.movie_id = movie.movie_id where ticket_id='{$id}'";
 	$result=mysqli_query($conn,$sql) or die("Query unsuccessful");
 
+	$No_of_rows=mysqli_num_rows($result);
+
+	if($No_of_rows==0)
+ 	echo "<h1>Ticket Expired!!!!</h1>";
 
 	if(mysqli_num_rows($result)){
   	while($row=mysqli_fetch_assoc($result)){
@@ -49,7 +53,7 @@
         </div>
         <div>
             <h1>Movie Time</h1><br>
-            <select name="time">
+            <!--<select name="time">
        <option value="" selected disabled>select Time
          </option><br>
           <option  value="09:00:00">
@@ -64,7 +68,30 @@
            <option value="18:00:00">
                18:00:00
                 </option>
-          </select>
+          </select>-->
+          <?php
+$item =$row['movie_time'];
+if ($item == "")
+
+	$item = 1;
+
+?>
+          <select name="time" >
+<?php
+$Time = array(
+	"",
+	"09:00:00",
+	"12:00:00",
+	"15:00:00",
+	"18:00:00");
+for ($i = 1; $i <= 4; $i++)
+{
+?>
+<option value="<?php echo $Time[$i] ?>" <?php if ($item == $Time[$i]) { print "SELECTED";}?>> <?php echo $Time[$i] ?></option>
+<?php
+}
+?>
+</select>
         </div>
         <div>
             <h1>Phone Number</h1><br>
