@@ -2,7 +2,8 @@ CREATE EVENT IF NOT EXISTS event_20
 ON SCHEDULE EVERY 5 SECOND
 STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
 DO 
-DELETE FROM user WHERE (CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>=movie_date) OR CURRENT_DATE()>movie_date;
+DELETE FROM user WHERE (CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>=movie_date) or 
+(CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>movie_date);
 
 
 
@@ -32,3 +33,10 @@ date_add($date,date_interval_create_from_date_string("7 days"));
 echo date_format($date,"Y-m-d");
 ?>"  min="<?php echo date("Y-m-d")?>"><br> 
 
+
+
+select TIMEDIFF(cast(concat(movie_date, ' ',movie_time) as datetime),cast(concat(CURRENT_DATE(), ' ',CURRENT_TIME()) as datetime)) from user
+
+
+
+DELETE FROM user where cast(concat(CURRENT_DATE(), ' ',CURRENT_TIME()) as datetime)>= ADDTIME(cast(concat(movie_date, ' ',movie_time) as datetime), "8:00:00") from user
