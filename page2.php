@@ -65,8 +65,6 @@ echo date_format($date,"Y-m-d");
  18:00:00
  </option>
  </select><br>
- <h1>Enter number of tickets</h1>
- <input type="text" name="number_of_tickets"><br>
  <input type="submit" name="submit" value="Submit" id="bt">
 	</form>
 </body>

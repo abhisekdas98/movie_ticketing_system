@@ -1,8 +1,8 @@
 # movie_ticketing_system
 #There are two tables.
 1. user table
- This table has 7 columns.
-  columns-ticket_id(primary key)(auto increment),user_name,user_phone_no,movie_id,movie_time,no_of_tickets and movie_date.
+ This table has 6 columns.
+  columns-ticket_id(primary key)(auto increment),user_name,user_phone_no,movie_id,movie_time and movie_date.
 2. movie table
   This table has 2 columns.
   movie_id(primary key) and movie_name. 

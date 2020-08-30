@@ -2,8 +2,7 @@ CREATE EVENT IF NOT EXISTS event_20
 ON SCHEDULE EVERY 5 SECOND
 STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
 DO 
-DELETE FROM user WHERE (CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>=movie_date) or 
-(CURRENT_TIME()-movie_time >=8 and CURRENT_DATE()>movie_date);
+DELETE FROM user where cast(concat(CURRENT_DATE(), ' ',CURRENT_TIME()) as datetime)>= ADDTIME(cast(concat(movie_date, ' ',movie_time) as datetime), "8:00:00")
 
 
 

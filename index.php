@@ -30,7 +30,6 @@ if($No_of_rows==0)
         <th>Movie Name</th>
         <th>Movie Time</th>
         <th>Movie Date</th>
-        <th>No of Tickets</th>
         </thead>
         <tbody>
         	<?php
@@ -43,7 +42,6 @@ if($No_of_rows==0)
                 <td><?php echo $row['movie_name'] ?></td>
                 <td><?php echo $row['movie_time'] ?></td>
                 <td><?php echo $row['movie_date'] ?></td>
-                <td><?php echo $row['no_of_tickets'] ?></td>
             </tr>
         <?php } ?>
         </tbody>
