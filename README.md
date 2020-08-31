@@ -76,6 +76,6 @@ STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
 DO
 DELETE FROM user where cast(concat(CURRENT_DATE(), ' ',CURRENT_TIME()) as datetime)>= ADDTIME(cast(concat(movie_date, ' ',movie_time) as datetime), "8:00:00");
 
-#I am uploading the screen shots of my work in a word file named imgmovieproject.You can go through it once you are done with the above.
+#I am uploading the screen shots of my work in a word document named imgmovieproject.You can go through it once you are done with the above.
 
 
