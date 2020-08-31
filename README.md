@@ -66,9 +66,9 @@ In this page i am fetching the new time entered by the user and updating it in m
   When the user clicked the button of  showticket on home.php it will open show.php page.Here the user is first asked his id.If  the movie time and date is greater than current time and date by 8hrs then it will show that the ticket is expired.Else it will show the user his ticket details.
 
 
-#For deleting the data automatically from database i have written an Event Scheduling Querry.Here in event scheduling  querry i am taking the current time and current date and fetching the movie time and movie date every 5 seconds and if the the current time and current date is 8hrs more than the movie time and movie date then deleting the data from the user table.
+##For deleting the data automatically from database i have written an Event Scheduling Querry.Here in event scheduling  querry i am taking the current time and current date and fetching the movie time and movie date every 5 seconds and if the the current time and current date is 8hrs more than the movie time and movie date then deleting the data from the user table.
 
-#Here  is the querry for above statement which i ran on mysql database.
+##Here  is the querry for above statement which i ran on mysql database.
 
 CREATE EVENT IF NOT EXISTS event_20
 ON SCHEDULE EVERY 5 SECOND
@@ -76,6 +76,6 @@ STARTS CURRENT_TIMESTAMP + INTERVAL 5 SECOND
 DO
 DELETE FROM user where cast(concat(CURRENT_DATE(), ' ',CURRENT_TIME()) as datetime)>= ADDTIME(cast(concat(movie_date, ' ',movie_time) as datetime), "8:00:00");
 
-#I am uploading the screen shots of my work in a word document named imgmovieproject.You can go through it once you are done with the above.
+##I am uploading the screen shots of my work in a word document named imgmovieproject.You can go through it once you are done with the above.
 
 
